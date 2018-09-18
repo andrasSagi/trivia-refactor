@@ -57,8 +57,8 @@ class Game:
                 if self.places[self.current_player] > 11:
                     self.places[self.current_player] = self.places[self.current_player] - 12
 
-                print(self.players[self.current_player] + \
-                      '\'s new location is ' + \
+                print(self.players[self.current_player] +
+                      '\'s new location is ' +
                       str(self.places[self.current_player]))
                 print("The category is %s" % self._current_category)
                 self._ask_question()
@@ -70,8 +70,8 @@ class Game:
             if self.places[self.current_player] > 11:
                 self.places[self.current_player] = self.places[self.current_player] - 12
 
-            print(self.players[self.current_player] + \
-                  '\'s new location is ' + \
+            print(self.players[self.current_player] +
+                  '\'s new location is ' +
                   str(self.places[self.current_player]))
             print("The category is %s" % self._current_category)
             self._ask_question()
@@ -100,9 +100,9 @@ class Game:
             if self.is_getting_out_of_penalty_box:
                 print('Answer was correct!!!!')
                 self.purses[self.current_player] += 1
-                print(self.players[self.current_player] + \
-                      ' now has ' + \
-                      str(self.purses[self.current_player]) + \
+                print(self.players[self.current_player] +
+                      ' now has ' +
+                      str(self.purses[self.current_player]) +
                       ' Gold Coins.')
 
                 winner = self._did_player_win()
@@ -121,9 +121,9 @@ class Game:
 
             print("Answer was corrent!!!!")
             self.purses[self.current_player] += 1
-            print(self.players[self.current_player] + \
-                  ' now has ' + \
-                  str(self.purses[self.current_player]) + \
+            print(self.players[self.current_player] +
+                  ' now has ' +
+                  str(self.purses[self.current_player]) +
                   ' Gold Coins.')
 
             winner = self._did_player_win()
