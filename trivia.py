@@ -7,7 +7,7 @@ class Game:
         self.players = []
         self.places = [0] * 6
         self.purses = [0] * 6
-        self.in_penalty_box = [0] * 6
+        self.in_penalty_box = [False] * 6
 
         self.pop_questions = []
         self.science_questions = []
@@ -25,14 +25,8 @@ class Game:
 
     def add(self, player_name):
         self.players.append(player_name)
-        self.places[self.number_of_players] = 0
-        self.purses[self.number_of_players] = 0
-        self.in_penalty_box[self.number_of_players] = False
-
         print(player_name + " was added")
-        print("They are player number %s" % len(self.players))
-
-        return True
+        print("They are player number %s" % self.number_of_players)
 
     @property
     def number_of_players(self):
