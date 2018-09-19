@@ -25,9 +25,9 @@ class Game:
 
     def add(self, player_name):
         self.players.append(player_name)
-        self.places[self.how_many_players] = 0
-        self.purses[self.how_many_players] = 0
-        self.in_penalty_box[self.how_many_players] = False
+        self.places[self.number_of_players] = 0
+        self.purses[self.number_of_players] = 0
+        self.in_penalty_box[self.number_of_players] = False
 
         print(player_name + " was added")
         print("They are player number %s" % len(self.players))
@@ -35,7 +35,7 @@ class Game:
         return True
 
     @property
-    def how_many_players(self):
+    def number_of_players(self):
         return len(self.players)
 
     def roll(self, roll):
@@ -115,17 +115,13 @@ class Game:
 
     def next_player(self):
         self.current_player += 1
-        if self.current_player == len(self.players):
+        if self.current_player == self.number_of_players:
             self.current_player = 0
 
     def wrong_answer(self):
         print('Question was incorrectly answered')
         print(self.players[self.current_player] + " was sent to the penalty box")
         self.in_penalty_box[self.current_player] = True
-
-        self.current_player += 1
-        if self.current_player == len(self.players):
-            self.current_player = 0
         return True
 
     def _did_player_win(self):
