@@ -50,20 +50,20 @@ class Game:
         if self.places[self.current_player] > 11:
             self.places[self.current_player] = self.places[self.current_player] - 12
 
-        print(self.players[self.current_player] +
-              '\'s new location is ' +
+        print(self.players[self.current_player] + '\'s new location is ' +
               str(self.places[self.current_player]))
-        print("The category is %s" % self._current_category)
         self._ask_question()
 
     def _ask_question(self):
-        if self._current_category == 'Pop':
+        category = self._current_category
+        print("The category is %s" % category)
+        if category == 'Pop':
             print(self.pop_questions.pop(0))
-        if self._current_category == 'Science':
+        elif category == 'Science':
             print(self.science_questions.pop(0))
-        if self._current_category == 'Sports':
+        elif category == 'Sports':
             print(self.sports_questions.pop(0))
-        if self._current_category == 'Rock':
+        else:
             print(self.rock_questions.pop(0))
 
     @property
@@ -81,10 +81,8 @@ class Game:
         if not self.in_penalty_box[self.current_player]:
             print("Answer was correct!!!!")
             self.purses[self.current_player] += 1
-            print(self.players[self.current_player] +
-                  ' now has ' +
-                  str(self.purses[self.current_player]) +
-                  ' Gold Coins.')
+            print(self.players[self.current_player] + ' now has ' +
+                  str(self.purses[self.current_player]) + ' Gold Coins.')
 
     def next_player(self):
         self.current_player += 1
