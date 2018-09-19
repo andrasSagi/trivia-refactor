@@ -53,28 +53,23 @@ class Game:
                 self.is_getting_out_of_penalty_box = True
 
                 print("%s is getting out of the penalty box" % self.players[self.current_player])
-                self.places[self.current_player] = self.places[self.current_player] + roll
-                if self.places[self.current_player] > 11:
-                    self.places[self.current_player] = self.places[self.current_player] - 12
-
-                print(self.players[self.current_player] +
-                      '\'s new location is ' +
-                      str(self.places[self.current_player]))
-                print("The category is %s" % self._current_category)
-                self._ask_question()
+                self._move_current_player(roll)
             else:
                 print("%s is not getting out of the penalty box" % self.players[self.current_player])
                 self.is_getting_out_of_penalty_box = False
         else:
-            self.places[self.current_player] = self.places[self.current_player] + roll
-            if self.places[self.current_player] > 11:
-                self.places[self.current_player] = self.places[self.current_player] - 12
+            self._move_current_player(roll)
 
-            print(self.players[self.current_player] +
-                  '\'s new location is ' +
-                  str(self.places[self.current_player]))
-            print("The category is %s" % self._current_category)
-            self._ask_question()
+    def _move_current_player(self, roll):
+        self.places[self.current_player] = self.places[self.current_player] + roll
+        if self.places[self.current_player] > 11:
+            self.places[self.current_player] = self.places[self.current_player] - 12
+
+        print(self.players[self.current_player] +
+              '\'s new location is ' +
+              str(self.places[self.current_player]))
+        print("The category is %s" % self._current_category)
+        self._ask_question()
 
     def _ask_question(self):
         if self._current_category == 'Pop':
@@ -121,7 +116,7 @@ class Game:
 
         else:
 
-            print("Answer was corrent!!!!")
+            print("Answer was correct!!!!")
             self.purses[self.current_player] += 1
             print(self.players[self.current_player] +
                   ' now has ' +
