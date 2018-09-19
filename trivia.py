@@ -77,10 +77,14 @@ class Game:
             self._ask_question()
 
     def _ask_question(self):
-        if self._current_category == 'Pop': print(self.pop_questions.pop(0))
-        if self._current_category == 'Science': print(self.science_questions.pop(0))
-        if self._current_category == 'Sports': print(self.sports_questions.pop(0))
-        if self._current_category == 'Rock': print(self.rock_questions.pop(0))
+        if self._current_category == 'Pop':
+            print(self.pop_questions.pop(0))
+        if self._current_category == 'Science':
+            print(self.science_questions.pop(0))
+        if self._current_category == 'Sports':
+            print(self.sports_questions.pop(0))
+        if self._current_category == 'Rock':
+            print(self.rock_questions.pop(0))
 
     @property
     def _current_category(self):
@@ -105,15 +109,15 @@ class Game:
 
                 winner = self._did_player_win()
                 self.current_player += 1
-                if self.current_player == len(self.players): self.current_player = 0
+                if self.current_player == len(self.players):
+                    self.current_player = 0
 
                 return winner
             else:
                 self.current_player += 1
-                if self.current_player == len(self.players): self.current_player = 0
+                if self.current_player == len(self.players):
+                    self.current_player = 0
                 return True
-
-
 
         else:
 
@@ -126,7 +130,8 @@ class Game:
 
             winner = self._did_player_win()
             self.current_player += 1
-            if self.current_player == len(self.players): self.current_player = 0
+            if self.current_player == len(self.players):
+                self.current_player = 0
 
             return winner
 
@@ -136,7 +141,8 @@ class Game:
         self.in_penalty_box[self.current_player] = True
 
         self.current_player += 1
-        if self.current_player == len(self.players): self.current_player = 0
+        if self.current_player == len(self.players):
+            self.current_player = 0
         return True
 
     def _did_player_win(self):
@@ -160,4 +166,5 @@ if __name__ == '__main__':
         else:
             not_a_winner = game.was_correctly_answered()
 
-        if not not_a_winner: break
+        if not not_a_winner:
+            break
