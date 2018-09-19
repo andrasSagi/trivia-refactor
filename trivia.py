@@ -63,19 +63,19 @@ class Game:
             print(self.science_questions.pop(0))
         elif category == 'Sports':
             print(self.sports_questions.pop(0))
-        else:
+        elif category == 'Rock':
             print(self.rock_questions.pop(0))
 
     @property
     def _current_category(self):
         category_type = self.places[self.current_player] % 4
-        if category_type % 4 == 0:
+        if category_type == 0:
             return 'Pop'
-        elif category_type % 4 == 1:
+        elif category_type == 1:
             return 'Science'
-        elif category_type % 4 == 2:
+        elif category_type == 2:
             return 'Sports'
-        else:
+        elif category_type == 3:
             return 'Rock'
 
     def handle_correct_answer(self):
