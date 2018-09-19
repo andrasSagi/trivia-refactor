@@ -103,10 +103,8 @@ class Game:
                       ' Gold Coins.')
 
                 winner = self._did_player_win()
-                self._next_player()
                 return winner
             else:
-                self._next_player()
                 return True
 
         else:
@@ -119,10 +117,9 @@ class Game:
                   ' Gold Coins.')
 
             winner = self._did_player_win()
-            self._next_player()
             return winner
 
-    def _next_player(self):
+    def next_player(self):
         self.current_player += 1
         if self.current_player == len(self.players):
             self.current_player = 0
@@ -157,6 +154,6 @@ if __name__ == '__main__':
             not_a_winner = game.wrong_answer()
         else:
             not_a_winner = game.was_correctly_answered()
-
+        game.next_player()
         if not not_a_winner:
             break
