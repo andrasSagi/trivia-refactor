@@ -68,11 +68,12 @@ class Game:
 
     @property
     def _current_category(self):
-        if self.places[self.current_player] % 4 == 0:
+        category_type = self.places[self.current_player] % 4
+        if category_type % 4 == 0:
             return 'Pop'
-        elif self.places[self.current_player] % 4 == 1:
+        elif category_type % 4 == 1:
             return 'Science'
-        elif self.places[self.current_player] % 4 == 2:
+        elif category_type % 4 == 2:
             return 'Sports'
         else:
             return 'Rock'
