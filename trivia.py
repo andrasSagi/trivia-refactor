@@ -16,7 +16,7 @@ class Game:
 
         self.current_player = 0
 
-        for i in range(50):
+        for i in range(1, 51):
             self.pop_questions.append("Pop Question %s" % i)
             self.science_questions.append("Science Question %s" % i)
             self.sports_questions.append("Sports Question %s" % i)
