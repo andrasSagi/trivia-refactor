@@ -46,9 +46,9 @@ class Game:
             self._move_current_player(roll)
 
     def _move_current_player(self, roll):
-        self.places[self.current_player] = self.places[self.current_player] + roll
+        self.places[self.current_player] += roll
         if self.places[self.current_player] > 11:
-            self.places[self.current_player] = self.places[self.current_player] - 12
+            self.places[self.current_player] -= 12
 
         print(self.players[self.current_player] + '\'s new location is ' +
               str(self.places[self.current_player]))
