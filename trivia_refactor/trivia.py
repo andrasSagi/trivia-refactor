@@ -77,29 +77,42 @@ class Game:
         elif category_type == 3:
             return 'Rock'
 
-    def handle_correct_answer(self):
+    def _handle_correct_answer(self):
         if not self.in_penalty_box[self.current_player]:
             print("Answer was correct!!!!")
             self.purses[self.current_player] += 1
             print(self.players[self.current_player] + ' now has ' +
                   str(self.purses[self.current_player]) + ' Gold Coins.')
 
-    def next_player(self):
+    def _next_player(self):
         self.current_player += 1
         if self.current_player == self.number_of_players:
             self.current_player = 0
 
-    def handle_wrong_answer(self):
+    def _handle_wrong_answer(self):
         print('Question was incorrectly answered')
         print(self.players[self.current_player] + " was sent to the penalty box")
         self.in_penalty_box[self.current_player] = True
 
-    def did_player_win(self):
+    def _did_player_win(self):
         return self.purses[self.current_player] == 6
+
+    def run(self):
+        game_over = False
+
+        while not game_over:
+            self.roll(randrange(5) + 1)
+
+            if randrange(9) == 7:
+                self._handle_wrong_answer()
+            else:
+                self._handle_correct_answer()
+                game_over = self._did_player_win()
+
+            self._next_player()
 
 
 if __name__ == '__main__':
-    game_over = False
 
     game = Game()
 
@@ -107,12 +120,4 @@ if __name__ == '__main__':
     game.add('Pat')
     game.add('Sue')
 
-    while not game_over:
-        game.roll(randrange(5) + 1)
-
-        if randrange(9) == 7:
-            game.handle_wrong_answer()
-        else:
-            game.handle_correct_answer()
-            game_over = game.did_player_win()
-        game.next_player()
+    game.run()
