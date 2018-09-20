@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-import trivia
+from trivia_refactor import trivia
 
 
 class TestTrivia(TestCase):
