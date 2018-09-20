@@ -35,13 +35,12 @@ class Game:
         print("%s is the current player" % self.players[self.current_player])
         print("They have rolled a %s" % roll)
 
-        if self.in_penalty_box[self.current_player]:
-            if roll % 2 != 0:
-                print("%s is getting out of the penalty box" % self.players[self.current_player])
-                self.in_penalty_box[self.current_player] = False
-                self._move_current_player(roll)
-            else:
-                print("%s is not getting out of the penalty box" % self.players[self.current_player])
+        if self.in_penalty_box[self.current_player] and roll % 2 != 0:
+            print("%s is getting out of the penalty box" % self.players[self.current_player])
+            self.in_penalty_box[self.current_player] = False
+            self._move_current_player(roll)
+        elif self.in_penalty_box[self.current_player]:
+            print("%s is not getting out of the penalty box" % self.players[self.current_player])
         else:
             self._move_current_player(roll)
 
